@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-  PageController _pageController;
+  PageController? _pageController;
 
   static List<Widget> _pageList = [
     HomePage(),
@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void dispose() {
-    _pageController.dispose();
+    _pageController!.dispose();
     super.dispose();
   }
 
@@ -45,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Task管理アプリ'),
+
       ),
       body: PageView(
         controller: _pageController,
@@ -70,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: (index) {
           _selectedIndex = index;
 
-          _pageController.animateToPage(index,
+          _pageController!.animateToPage(index,
               duration: Duration(milliseconds: 300), curve: Curves.easeIn);
         },
       ),

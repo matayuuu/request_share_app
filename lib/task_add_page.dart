@@ -7,7 +7,7 @@ class TaskAddPage extends StatefulWidget {
 
 class _TaskAddPageState extends State<TaskAddPage> {
 
-  TextEditingController _textEditingController;
+  TextEditingController? _textEditingController;
 
   @override
   void initState() {
@@ -36,6 +36,6 @@ class _TaskAddPageState extends State<TaskAddPage> {
   }
 
   void _doneTask() {
-    print(_textEditingController.text);
+    print(_textEditingController!.text);
   }
 }
